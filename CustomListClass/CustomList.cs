@@ -45,7 +45,7 @@ namespace CustomListClass
             count++;
         }
 
-        public void Remove()
+        public bool Remove(T item)
         {
 
         }
