@@ -19,7 +19,7 @@ namespace CustomListUnitTests
             //act
             list.Add(lime);
             list.Add(lemon);
-            list.Remove(lime);
+            list.Remove("lime");
             actual = list.Count;
             //assert
             Assert.AreEqual(expected, actual);
@@ -91,20 +91,20 @@ namespace CustomListUnitTests
         }
 
         [TestMethod]
-        [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Remove_()
+        [ExpectedException(typeof(IndexOutOfRangeException))]
+        public void Remove_ItemFromListCheckindexForItem_()
         {
             //arrange
-            CustomList<int> list = new CustomList<int>();
-            int actual;
-            int one = 1;
-            int two = 2;
+            CustomList<string> list = new CustomList<string>();
+            string actual;
+            string one = "1";
+            string two = "2";
 
             //act
             list.Add(one);
             list.Add(two);
             list.Remove(two);
-            actual = list[1];
+            actual = list[4];
         }
         [TestMethod]
         public void Remove_ItemNotInList_CountStays3()

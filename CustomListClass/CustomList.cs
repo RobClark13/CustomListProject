@@ -24,6 +24,7 @@ namespace CustomListClass
         public int Capacity
         {
             get { return capacity; }
+            set { capacity = value; }
         }
 
         //Constructor
@@ -47,7 +48,27 @@ namespace CustomListClass
 
         public bool Remove(T item)
         {
-
+            bool itemFound = false;
+            T[] newArray = new T[capacity];
+            for (int i = 0, j = 0; i < Count; i++, j++)
+            {
+                if (itemArr[i].Equals(item) && itemFound == false)
+                {
+                    itemFound = true;
+                    j--;
+                }
+                else
+                {
+                    newArray[j] = itemArr[i];
+                }
+            }
+            if (itemFound == true)
+            {
+                count--;
+               //Capacity = count;
+            }
+            itemArr = newArray;
+            return itemFound;
         }
     }
 }
