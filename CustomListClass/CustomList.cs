@@ -70,5 +70,21 @@ namespace CustomListClass
             itemArr = newArray;
             return itemFound;
         }
+        public override string ToString()
+        {
+            string newString = "";
+            for (int i = 0; i < Count; i++)
+            {
+                if (i+1 == Count)
+                {
+                    newString = newString + itemArr[i];
+                }
+                else
+                {
+                    newString = newString + itemArr[i] + " ";
+                }
+            }
+            return newString;
+        }
     }
 }
