@@ -5,10 +5,10 @@ using CustomListClass;
 namespace CustomListUnitTests
 {
     [TestClass]
-    public class OVerloadMinusMethodTests
+    public class OverloadMinusMethodTests
     {
         [TestMethod]
-        public void ToString1()
+        public void OverloadMinus_()
         {
             //arrange
 
