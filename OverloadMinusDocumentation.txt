@@ -1,0 +1,28 @@
+CustomList<T> Overload -
+
+Removes the first occurence of an object from the first list that occurs in the second list
+Syntax
+newList = list1 - list2
+Parameters
+	Two CustomList lists
+	The second list removes any matching instance from the first list
+
+Return Type
+	CustomList<T>
+
+Example
+
+ CustomList<string> list1 = new CustomList<string> { "Red Wings", "Rangers", "Blackhawks" };
+ CustomList<string> list2 = new CustomList<string> { "Bluejackets", "Blackhawks", "Predators" };
+ CustomList<string> newList;
+
+ newList = list1 - list2;
+ foreach(T item in newList)
+ {
+ Console.Writeline(item);
+ }
+
+ //Output
+ //"Red Wings"
+ //"Rangers"
+
