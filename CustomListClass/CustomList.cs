@@ -68,15 +68,51 @@ namespace CustomListClass
             }
             if (itemFound == true)
             {
-                count--;
-               //Capacity = count;
+                count--;               
             }
             itemArr = newArray;
             return itemFound;
         }
         public CustomList<T> Zipper(CustomList<T> list1, CustomList<T> list2)
         {
-
+            CustomList<T> newList = new CustomList<T>();
+            int j = 0;
+            if(list1.Count == list2.Count)
+            {
+                for (int i = 0; i < list1.Count; i++)
+                {
+                    newList.Add(list1[i]);
+                    newList.Add(list2[i]);
+                }
+            }
+            else if (list1.Count > list2.Count)  
+            {
+                for (int i = 0; i < list2.Count; i++)
+                {
+                    newList.Add(list1[i]);
+                    newList.Add(list2[i]);
+                    j++;
+                }
+                for (int i = j; i < list1.Count;  i++)
+                {
+                    newList.Add(list1[i]);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < list1.Count; i++)
+                {
+                    newList.Add(list1[i]);
+                    newList.Add(list2[i]);
+                    j++;
+                }
+                for (int i = j; i < list2.Count; i++)
+                {
+                    newList.Add(list2[i]);
+                }
+            }
+            
+            return newList;
         }
 
         public override string ToString()
@@ -121,13 +157,16 @@ namespace CustomListClass
         public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
         {
             CustomList<T> newList = new CustomList<T>();
-            foreach(T item in list1)
-            {
-
-            }
             
+            for (int i = 0; i < list1.Count; i++)
+            {
+                foreach (T item in list2)
+                {
+                  list1.Remove(item);
+                }
+            }
+            newList = list1;
             return newList;
         }
-
     }
 }
