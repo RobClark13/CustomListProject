@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomListClass
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         //Member Variables
         private T[] itemArr = new T[4];
@@ -31,6 +32,9 @@ namespace CustomListClass
 
 
         //Member Methods
+
+        
+
         public void Add(T item)
         {
             if (count == capacity)
@@ -70,6 +74,11 @@ namespace CustomListClass
             itemArr = newArray;
             return itemFound;
         }
+        public CustomList<T> Zipper(CustomList<T> list1, CustomList<T> list2)
+        {
+
+        }
+
         public override string ToString()
         {
             string newString = "";
@@ -86,6 +95,15 @@ namespace CustomListClass
             }
             return newString;
         }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            for (int i = 0; i < Count; i++)
+            {
+                yield return itemArr[i];
+            }
+        }
+
         public static CustomList<T> operator + (CustomList<T> list1, CustomList<T> list2)
         {
             CustomList<T> newList= new CustomList<T>();
@@ -102,6 +120,12 @@ namespace CustomListClass
         }
         public static CustomList<T> operator - (CustomList<T> list1, CustomList<T> list2)
         {
+            CustomList<T> newList = new CustomList<T>();
+            foreach(T item in list1)
+            {
+
+            }
+            
             return newList;
         }
 
