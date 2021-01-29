@@ -7,7 +7,6 @@ namespace CustomListUnitTests
     [TestClass]
     public class AddMethodTests
     {
-        
         //How do we know we've successfully added somthing to our CustomList
         //Count goes up whwen we add?
         //test taht the item was added to the right index (indexes outside of zero)

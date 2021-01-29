@@ -33,8 +33,6 @@ namespace CustomListClass
 
         //Member Methods
 
-        
-
         public void Add(T item)
         {
             if (count == capacity)
